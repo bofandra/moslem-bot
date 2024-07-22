@@ -43,13 +43,12 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Echo the user message."""
     result = client.predict(
-		message="Hello!!",
+		message=update.message.text,
 		max_tokens=2048,
 		temperature=0.7,
 		top_p=0.95,
 		api_name="/chat"
     )
-
     await update.message.reply_text(result)
 
 
