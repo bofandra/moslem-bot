@@ -28,9 +28,9 @@ async def send_welcome(message: types.Message):
 @dp.message()
 async def echo(message: types.Message):
     print("echo")
-    print(message)
+    print(message.text)
     job = client.submit(
-		message=message,
+		message=message.text,
 		max_tokens=2048,
 		temperature=0.7,
 		top_p=0.95,
