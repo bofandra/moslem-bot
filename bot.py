@@ -37,7 +37,7 @@ async def echo(message: types.Message):
 		top_p=0.95,
 		api_name="/chat"
     )"""
-    url = 'https://www.w3schools.com/python/demopage.php'
+    url = 'https://dummy.restapiexample.com/api/v1/create'
     myobj = {'somekey': 'somevalue'}
     x = requests.post(url, json = myobj)
     await message.answer(x.text)
