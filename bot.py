@@ -15,7 +15,7 @@ Press Ctrl-C on the command line or send a signal to the process to stop the
 bot.
 """
 import logging
-import requests
+from gradio_client import Client
 
 from telegram import ForceReply, Update
 from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler, filters
@@ -28,6 +28,7 @@ logging.basicConfig(
 logging.getLogger("httpx").setLevel(logging.WARNING)
 
 logger = logging.getLogger(__name__)
+client = Client("Bofandra/moslem-bot")
 
 # Define a few command handlers. These usually take the two arguments update and
 # context.
@@ -41,17 +42,15 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
 async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Echo the user message."""
-    url = 'https://bofandra-moslem-bot.hf.space/call/chat'
-    myobj = {
-      "data": [
-        update.message.text,
-        2048,
-        0.7,
-        0.95
-    ]}
+    result = client.predict(
+		message="Hello!!",
+		max_tokens=2048,
+		temperature=0.7,
+		top_p=0.95,
+		api_name="/chat"
+    )
 
-    result = requests.post(url, json = myobj)
-    await update.message.reply_text(result.text)
+    await update.message.reply_text(result)
 
 
 def main() -> None:
