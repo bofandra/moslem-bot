@@ -41,10 +41,6 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
 async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Echo the user message."""
-    proxies = {
-       'http': 'proxy.server:3128',
-       'https': 'proxy.server:3128',
-     }
     url = 'https://bofandra-moslem-bot.hf.space/call/chat'
     myobj = {
       "data": [
@@ -54,7 +50,7 @@ async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         0.95
     ]}
 
-    result = requests.post(url, json = myobj, proxies=proxies)
+    result = requests.post(url, json = myobj)
     await update.message.reply_text(result)
 
 
