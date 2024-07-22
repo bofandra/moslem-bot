@@ -3,6 +3,7 @@ from gradio_client import Client
 import asyncio
 
 from aiogram import Bot, Dispatcher, types
+from aiogram.filters.command import Command
 
 API_TOKEN = '6546697966:AAH3K0GvgvnMy6AWn43xYKi_3fuRyzEhqAw'
 
@@ -15,16 +16,16 @@ dp = Dispatcher()
 
 client = Client("Bofandra/moslem-bot")
 
-@dp.message_handler(commands=['start', 'help'])
+@dp.message(Command('start'))
 async def send_welcome(message: types.Message):
     """
-    This handler will be called when user sends `/start` or `/help` command
+    This handler will be called when user sends `/start` command
     """
     await message.reply("Please ask anything about Islam..")
 
 
 
-@dp.message_handler()
+@dp.message()
 async def echo(message: types.Message):
     print("echo")
     print(message)
