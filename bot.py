@@ -1,6 +1,7 @@
 import logging
 from gradio_client import Client
 import asyncio
+import requests
 
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters.command import Command
@@ -36,7 +37,10 @@ async def echo(message: types.Message):
 		top_p=0.95,
 		api_name="/chat"
     )"""
-    await message.answer(message.text)
+    url = 'https://www.w3schools.com/python/demopage.php'
+    myobj = {'somekey': 'somevalue'}
+    x = requests.post(url, json = myobj)
+    await message.answer(x.text)
 
 async def main():
     print('Bot started')
