@@ -51,7 +51,7 @@ async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     ]}
 
     result = requests.post(url, json = myobj)
-    await update.message.reply_text(result)
+    await update.message.reply_text(result.text)
 
 
 def main() -> None:
