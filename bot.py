@@ -34,6 +34,7 @@ client = Client("Bofandra/moslem-bot")
 # context.
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Send a message when the command /start is issued."""
+    print("start")
     user = update.effective_user
     await update.message.reply_html(
         rf"Hi {user.mention_html()}! Please ask anything about Islam..",
@@ -42,6 +43,8 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
 async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Echo the user message."""
+    print("echo")
+    print(update.message.text)
     job = client.submit(
 		message=update.message.text,
 		max_tokens=2048,
