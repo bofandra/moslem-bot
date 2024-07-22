@@ -1,5 +1,6 @@
 import logging
 from gradio_client import Client
+import asyncio
 
 from aiogram import Bot, Dispatcher, types
 
@@ -36,7 +37,9 @@ async def echo(message: types.Message):
     )
     await message.answer(job.result())
 
-print('Bot started')
+async def main():
+    print('Bot started')
+    await dp.start_polling(bot)
 
 if __name__ == "__main__":
-    dp.start_polling(dp, skip_updates=True)
+    asyncio.run(main())
