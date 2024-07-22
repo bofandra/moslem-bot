@@ -1,7 +1,7 @@
 import logging
 from gradio_client import Client
 
-from aiogram import Bot, Dispatcher, executor, types
+from aiogram import Bot, Dispatcher, types
 
 API_TOKEN = '6546697966:AAH3K0GvgvnMy6AWn43xYKi_3fuRyzEhqAw'
 
@@ -39,4 +39,4 @@ async def echo(message: types.Message):
 print('Bot started')
 
 if __name__ == "__main__":
-    executor.start_polling(dp, skip_updates=True)
+    dp.start_polling(dp, skip_updates=True)
