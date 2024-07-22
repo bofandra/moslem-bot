@@ -29,14 +29,14 @@ async def send_welcome(message: types.Message):
 async def echo(message: types.Message):
     print("echo")
     print(message.text)
-    job = client.submit(
+    result = client.predict(
 		message=message.text,
 		max_tokens=2048,
 		temperature=0.7,
 		top_p=0.95,
 		api_name="/chat"
     )
-    await message.answer(job.result())
+    await message.answer(result)
 
 async def main():
     print('Bot started')
