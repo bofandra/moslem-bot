@@ -3,7 +3,7 @@ logging.basicConfig(level=logging.INFO)
 from gradio_client import Client
 from telegram.ext import Updater, CommandHandler, MessageHandler
 
-TOKEN = "later"
+TOKEN = "6546697966:AAH3K0GvgvnMy6AWn43xYKi_3fuRyzEhqAw"
 
 def start(update, context):
     update.message.reply_text("Welcome to the moslem bot! I can help you with your questions. send /ask ")
