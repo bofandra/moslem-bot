@@ -1,3 +1,2 @@
-six
 python-telegram-bot==13.7
 gradio_client
