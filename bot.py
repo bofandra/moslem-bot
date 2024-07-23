@@ -30,13 +30,14 @@ async def send_welcome(message: types.Message):
 async def echo(message: types.Message):
     print("echo")
     print(message.text)
-    """result = client.predict(
+    result = client.predict(
 		message=message.text,
 		max_tokens=2048,
 		temperature=0.7,
 		top_p=0.95,
 		api_name="/chat"
-    )"""
+    )
+    print("cek")
     url = 'https://dummy.restapiexample.com/api/v1/create'
     myobj = {'somekey': 'somevalue'}
     x = requests.post(url, json = myobj)
