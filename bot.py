@@ -28,7 +28,7 @@ logging.basicConfig(
 logging.getLogger("httpx").setLevel(logging.WARNING)
 
 logger = logging.getLogger(__name__)
-client = Client("Bofandra/moslem-bot")
+client = Client("Bofandra/moslem-bot", hf_token="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")
 
 # Define a few command handlers. These usually take the two arguments update and
 # context.
