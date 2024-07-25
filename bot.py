@@ -45,6 +45,7 @@ async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Echo the user message."""
     print("echo")
     print(update.message.text)
+    result = ""
     job = client.submit(
 		message=update.message.text,
 		max_tokens=2048,
@@ -52,7 +53,9 @@ async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 		top_p=0.95,
 		api_name="/chat"
     )
-    await update.message.reply_text(job.result())
+    if(len(job.result())>0):
+        result = job.result()
+    await update.message.reply_text()
 
 
 def main() -> None:
