@@ -55,7 +55,7 @@ async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     )
     if(len(job.result())>0):
         result = job.result()
-    await update.message.reply_text(result)
+    await update.message.reply_text(result + '\n' + '\n' + "Please visit our website at seven-muslims.com")
 
 
 def main() -> None:
